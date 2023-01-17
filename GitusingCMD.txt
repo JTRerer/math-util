@@ -1,0 +1,175 @@
+SETUP SỬ DỤNG GIT BẰNG COMMAND PROMPT CỦA WINDOWS
+1. SETUP CMD TOOL
+- Tải git-scm về, cài next next next, OK
+   (Git's Default Editor thường là Visual Studio Code)
+- Cài tool gõ lệnh up/down code với server xa, cài tool vào
+   C:\Program Files\Git\
+			lệnh ta xài đồng bộ code nằm trong
+			\bin\git.exe
+- Để thuận lợi gõ lệnh từ bất cứ đâu, ta sẽ đặt biến môi trường
+  1 khai báo với Windows nói rằng mày nên tìm lệnh tao gõ ở đâu
+  Windows chừa 1 chỗ sẵn, biến tên là PATH = VALUE CHÍNH LÀ CÁC NƠI
+					        CẦN TÌM LỆNH
+  Path được gọi là biến môi trường có value là các đường dẫn Folder 
+  mà lệnh nào đó nằm ở đó, ở cửa sỗ cmd gõ lệnh mẹ nào đó, Windows
+  tự mò vào PATH MÀ ĐI TÌM GIÙM
+2. SETUP ACCOUNT Ở LOCAL ĐỂ SẴN SÀNG ĐỒNG BỘ LÊN SERVER
+- CÂU LỆNH SETUP ACCOUNT CHỈ LÀM 1 LẦN DUY NHẤT CHO ĐẾN KHI CÀI LẠI
+  WINDOWS, HOẶC ĐỔI USERNAME/PASS
+  LÀM XONG WINDOWS NÓ REMEMBER CHO MÌNH
+
+  git config --global user.name "JTRerer"
+  git config --global user.email "trong...@gmail.com"
+  
+  PASSWORD LÁT HỒI LÚC ĐẨY CODE LẦN ĐẦU SẼ CÓ MÀN HÌNH POP-UP HỎI
+  GÕ VÀO VÀ WINDOWS SẼ REMEMBER.
+
+3. TẠO KHO, TẠO CODE - LÀM HOÀI CHO CÁC DỰ ÁN KHÁC NHAU
+  Chơi cách sau đây xác suất gặp lỗi ít nhất
+3.1 Tạo 1 kho trống trên Git Server, tên kho sẽ trùng với tên project
+ở LOCAL (trùng 100% hoa thường và khoảng trắng)
+math-util
+gợi ý mình gõ lệnh đưa code lên
+echo "# math-util" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/JTRerer/math-util.git
+git push -u origin main
+
+-- nên nhớ lệnh git trên mạng mà có chữ MASTER là cũ rồi,
+   CẬP NHẬT LỆNH MỚI = CHƠI VỚI CHỮ MAIN!!
+
+*XÓA KHO, ĐỔI TÊN KHO, PUBLIC/PRIVATE THÌ VÀO KHO/MENU BIỂU TƯỢNG SETTING
+ Ở ĐÁY MÀN HÌNH CÓ NÚT XÓA, CẢNH BÁO(DANGER ZONE)...
+
+3.2 TẠO CODE, CỨ XÀI CODE DÙNG IDE QUEN THUỘC NHƯ BÌNH THƯỜNG
+	NETBEANS, INTELLIJ, ECLIPSE (JAVA) -> BIÊN DỊCH VÀ ĐÓNG GÓI
+	VISUAL STUDIO (C#) -> BIÊN DỊCH VÀ ĐÓNG GÓI
+	CODE .JAVA -> .CLASS                     -> .JAR .WAR .APK
+	     .CS   -> .OBJ                       -> .DLL .EXE
+	     .c    -> .OBJ 			 -> .DLL .EXE
+
+	KHÔNG CẦN CẤT LÊN SERVER CODE LÀM GÌ CẢ, VÌ NÓ THAY ĐỔI HOÀI TRONG
+	QUÁ TRÌNH LÀM APP, VIẾT, THỬ NGHIỆM, CHỈNH SỬA, FIX LỖI
+	FILE NÀY CHƯA LÀ BẢN RELEASE ỔN ĐỊNH, ĐỂ CHUNG SERVER CODE PHÍ
+	KHÔNG GIAN LƯU TRỮ ($)
+	
+	.APK, .EXE, .JAR CHO DOWNLOAD, BÁN, THÌ SẼ ĐỂ SERVER DOWNLOAD, APP STORE
+
+	NETBEANS, DỊCH CODE (F6) RA 1 THƯ MỤC RIÊNG BUILD -> *.CLASS
+		  ĐÓNG GÓI (SHIFT F11 - CLEAN & BUILD) -> THƯ MỤC RIÊNG DIST\ -> .JAR
+	VS CŨNG TƯƠNG TỰ, SINH RA NHỮNG THƯ MỤC TRUNG GIAN NGOÀI THƯ MỤC SOURCE CHỨA CODE
+
+* CÓ NHỮNG THỨ KHI VIẾT CODE SẼ ĐỂ LÊN SERVER, CÓ NHỮNG THỨ KHÔNG ĐƯA LÊN
+  vấn đề là đưa thằng nào, để lại thằng nào, ta phải tự mò, khó quá!!!
+  THƯ MỤC SRC PHẢI ĐƯA LÊN, VẬY THÔI VÌ NÓ CHỨA CODE
+
+* TÙY XÀI TOOL KHÁC NHAU, CODE THÌ NHƯ NHAU CẦN LOẠI BỎ CÁC THƯ MỤC
+  NÀO ĐÓ KHÔNG LIÊN QUAN CODE, KHÔNG LIÊN QUAN ĐẾN BIÊN DỊCH APP, ĐÓNG GÓI APP
+
+* TA TỰ MÒ CÁI TẬP TIN NÀO CẦN ĐƯA LÊN SERVER, NGOÀI CODE PHẢI ĐƯA, KHỔ QUÁ
+
+* GIANG HỒ CÓ 1 ANH CHÀNG TỐT BỤNG, ẢNH LÀM SẴN HẾT CHO MÌNH CÁI GÌ CẦN LÊN SERVER,
+CÁI GÌ KHÔNG LÊN SERVER, ẢNH LẠI LÀM SẴN DANH SÁCH NÀY CHO CÁC TOOL IDE KHÁC NHAU LUÔN,
+TA CHỈ CẦN CHỌN DANH SÁCH KHỚP VỚI TOOL TA ĐANG XÀI, COPY VỀ LÀ XONG!!!
+
+LẤY DANH SÁCH NÀY, BÁO NGAY VỚI GIT CMD BẰNG UP PROJECT LÊN THÌ XEM DANH SÁCH KIA MÀ LÀM,
+ĐỪNG NHẮM MẮT UPLOAD HẾT NGHE CHƯA!!
+CỨ LÀM LOCAL VIẾT CODE DÙNG TOOL NÀO MÌNH THÍCH NHƯ BÌNH THƯỜNG
+LÚC UPLOADE CODE LÀM ƠN ĐỌC CHECK-LIST ĐƯA LÊN SERVER ĐÚNG FILE CẦN THIẾT TIẾT KIỆM 
+KHÔNG GIAN SERVER
+
+gitignore.io: NƠI CHỨA CÁC CHECK-LIST LÊN VÀ XUỐNG VÀ SERVER CỦA PROJECT
+	      CODE CỦA MÌNH TÙY IDE MÌNH XÀI
+
+MỖI THƯ MỤC CHỨA CODE/PROJECT TA CẦN LÀM THÊM 1 TẬP TIN .gitignore
+ĐỂ NHẮC TOOL GIT CMD RẰNG KHÔNG ĐƯA BẬY BẠ LÊN SERVER, ĐƯA ĐÚNG CÁI CẦN,
+RÁC RƯỞI THỬ NGHIỆM Ở LẠI
+
+- TÁI SỬ DỤNG FILE NÀY COPY/PASTE SANG CÁC PROJECT TƯƠNG ĐƯƠNG CÙNG TOOL
+- QUÊN LÀM FILE NÀY, ĐƯA TẤT CẢ LÊN
+
+4. ĐẨY CODE LÊN SERVER, SẼ LOẠI TRỪ TRONG GITIGNORE
+4.1 PHẢI CHUYỂN ĐẾN THƯ MỤC PROJECT
+  GÕ LỆNH: CD<THƯ MỤC CHỨA CODE>
+  CHUYỂN Ổ ĐĨA: D: E: F:
+
+4.2 GÕ LỆNH SAU ĐÂY, KHỞI TẠO KHO LOCAL CHUẨN BỊ ĐỒNG BỘ, LỆNH NÀY
+    LÀM 1 LẦN CHO 1 KHO, SANG KHO MỚI VỪA TẠO KHO THÌ LÀM 1 LẦN
+	
+    git init
+
+    GIT tự sinh ra cho mình 1 thư mục .git trong project. CẤM TUYỆT ĐỐI
+    ĐỤNG VÀO XÓA SỬA LUNG TUNG. NÓ THEO DÕI SỰ THAY ĐỔI CỦA CODE CỦA MÌNH,
+    SAU NÀY NÓ CÒN ROLLBACK, HISTORY, XỬ LÍ XUNG ĐỘT
+
+4.3 GÕ LỆNH git add * HOẶC git add . ĐỀU ĐƯỢC
+    hàm ý, tao muốn đưa tất cả mọi thứ trong thư mục này lên server ở xa
+    nhưng loại trừ có vài thằng ở lại, thằng ở lại chính là nằm trong .gitignore
+    đã khai báo trước.
+
+4.4 NHỮNG LỆNH git add * CÓ THỂ GÕ VÀI LẦN CŨNG ĐƯỢC DO ĐANG GÕ ĐẾN ĐÂY, CHỢT NHỚ
+    CẦN THÊM CODE, SỬA TIẾP, GÕ LẠI git add *　ĐỂ BÁO GIT TAO MUỐN ĐƯA CẢ ĐÁM
+
+    LÀM LỆNH CHỐT DEAL, KHÔNG SỬA NỮA KHÔNG BỔ SUNG NỮA, CHO ĐẾN LẦN SAU
+    
+    git commit -m "câu-thông-báo-up-code-lên-có-thay-đổi-gì-không"
+
+    SAU NÀY KHI TA RELEASE PHẦN MỀM, TA DỄ DÀNG LÀM FILE CHANGELOG GHI LẠI NHẬT KÝ
+    THAY ĐỔI APP LẦN NÀY SO VỚI LẦN XƯA, USER XÀI APP BIẾT APP VERSION NÀY HƠN VERSION
+    TRƯỚC Ở CÁI GÌ
+
+4.5 GÕ LỆNH git branch -M main ĐẨY CODE VÀO KHO "ẢO CHÍNH MAIN" NGÀY XƯA TÊN MASTER (2020)
+
+    Git ngầm định thư mục code ở local, và ở server có cơ chế ảo 
+    "kho ảo tên là main" - kho chính, nhánh chính, branch main
+    Git cho phép mình thử nghiệm code từ kho chính = cách tạo những kho ảo khác
+    trong cùng thư mục code.
+    NHÌN 1 THƯ MỤC CODE CỦA MÌNH, 1 THƯ MỤC CODE TRÊN SERVER
+    ẢO TUNG CHẢO CÁC BẢN CLONE KHO NGẦM, KHÔNG CẦN CHƠI TRÒ COPY/PASTE
+    NGUYÊN PROJECT ĐỂ THỬ NGHIỆM, KHÔNG CẦN, GIT LO HẾT CHỈ = LỆNH git branch 
+    LÀM ĐƯỢC ĐIỀU ẢO DIỆU NÀY QUA THƯ MỤC .git NGAY LỆNH git init TẠO RA
+
+    ĐỌC THÊM RẼ NHÁNH TRONG GIT/ COPY/PASTE PROJECT ĐỂ THÍ NGHIỆM
+
+4.6 HAI LỆNH CUỐI CÙNG ĐỒNG BỘ HÓA LÊN SERVER
+    git remote add origin https://github.com/JTRerer/math-util.git
+    LỆNH TRÊN GIÚP TA KHAI BÁO ĐƯỜNG LÊN SERVER, ĐƯỜNG LÊN SERVER GỌI TẮT
+    LÀ ORIGIN
+
+    ĐẨY CODE TỪ KHO MAIN ẢO VÀO THẲNG KHO TỪ XA, LÚC NÀY TÊN LÀ ORIGIN
+    BỊ HỎI USERNAME/PASS LÊN KHO 1 LẦN VÀ DUY NHẤT. WINDOWS SẼ TỰ NHỚ LẦN SAU
+    ĐỂN KHI CÀI LẠI WINDOWS, HOẶC ĐỔI USERNAME/PASS
+    git push -u origin main
+
+===========================================================================================================
+5. EM SỬA CODE HẰNG NGÀY THÌ SAO??? CÓ KHẢ NĂNG BỊ CONFLICT, XUNG ĐỘT CODE
+NGƯỜI KHÁC DO 2 NGƯỜI CÙNG SỬA TRỰC TIẾP 1 TẬP TIN TRÊN SERVER, TA SẼ GẶP THƯỜNG XUYÊN
+
+5.1 SỬA CODE VÀ KHÔNG XUNG ĐỘT
+    LOCAL VÀ SERVER SAU LẦN ĐẦU ĐANG GIỐNG NHAU
+    Ở LOCAL TA THÊM CODE, THÌ CỨ THÊM...
+    TA UP LÊN SERVER, NGON, VÌ DƯỚI LỚN CODE HƠN Ở SERVER, ĐÈ LÊN NGON LÀNH
+
+    HÀNG NGÀY CỨ SỬA CODE, NGÀY MAI CŨNG THẾ, KHÔNG CẦN LÀM LẠI CỤM LỆNH Ở TRÊN
+    CỤM LỆNH TRÊN CHỈ LÀM CHO KHO MỚI
+    
+	3 LỆNH XÀI THƯỜNG XUYÊN HẰNG NGÀY LÀ ĐÂY:
+	git add * --báo server tao muốn add tất cả những gì tao sửa
+        git commit -m "Lí do sửa là gì"
+        git push
+===========================================================================================================
+6. TRANG TRÍ CHO KHO CHO PRO - LÀM TRANG CHỦ CHO TỪNG KHO
+   VỪA VÀO KHO THẤY NGAY THÔNG TIN MÔ TẢ KHO, MÀU SẮC, FONT CHỮ TO NHỎ
+   ẢNH MẶT MÌNH NẾU MUỐN, COPYRIGHT BẢN QUYỀN...
+   KỸ THUẬT LÀM TRANG CHỦ CHO KHO ~~~~~ FILE README.md
+   file text thuần Notepad, ghi các thẻ định dạng hiển thị chữ to nhỏ
+   giống 1 chút HTML nhưng cú pháp đơn giản hơn rất nhiều
+   <h1>Xin chào </h1>
+   # Xin chào tương đương <h1> rồi
+   NGÔN NGỮ MARKDOWN (.md)
+   Git Server mặc định hiểu cú pháp MD này, tự nó render thành trang đẹp chuẩn cơm
+
+   TA LÀM FILE README.md úp lần 3 là xong cơ bản cho REPOSITORY CHUYÊN NGHIỆP 
